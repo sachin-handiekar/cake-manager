@@ -1,5 +1,5 @@
-Cake Manager Micro Service (fictitious)
-=======================================
+Cake Manager 
+=============
 
 * By accessing the root of the server (/) it should be possible to list the cakes currently in the system.  This
  must be presented in an acceptable format for a human to read.
@@ -16,7 +16,7 @@ Cake Manager Micro Service (fictitious)
 
 * The /cakes endpoint must also allow new cakes to be created.
 
-The web application runs on port 8282, which can be changed by updating the property (server.port) in application.properties (src/main/resources)
+The web application runs on port 8080, which can be changed by updating the property (server.port) in application.properties (src/main/resources)
 
 * Steps to run the project
 
@@ -28,4 +28,4 @@ The web application runs on port 8282, which can be changed by updating the prop
 
 ```java -jar cake-manager.jar```
 
-3. The project can be access on http://localhost:8282/
+3. The project can be access on http://localhost:8080/
