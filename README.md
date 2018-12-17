@@ -1,5 +1,5 @@
-Cake Manager Micro Service (fictitious)
-=======================================
+Cake Manager 
+=============
 
 * By accessing the root of the server (/) it should be possible to list the cakes currently in the system.  This
  must be presented in an acceptable format for a human to read.
