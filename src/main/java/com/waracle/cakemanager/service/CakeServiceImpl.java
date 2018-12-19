@@ -1,6 +1,6 @@
 package com.waracle.cakemanager.service;
 
-import com.waracle.cakemanager.domain.CakeEntity;
+import com.waracle.cakemanager.domain.Cake;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +15,12 @@ public class CakeServiceImpl implements CakeService {
     private CakeRepository cakeRepository;
 
     @Override
-    public List<CakeEntity> getAllCakes() {
+    public List<Cake> getAllCakes() {
         return cakeRepository.findAll();
     }
 
     @Override
-    public void saveCake(CakeEntity cake) {
+    public void saveCake(Cake cake) {
         cakeRepository.saveAndFlush(cake);
     }
 

@@ -2,7 +2,7 @@ package com.waracle.cakemanager.web;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.waracle.cakemanager.domain.CakeEntity;
+import com.waracle.cakemanager.domain.Cake;
 import com.waracle.cakemanager.service.CakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -28,10 +28,10 @@ public class CakeController {
 
     @GetMapping({"/", "/cakes"})
     public ModelAndView index() {
-        List<CakeEntity> cakeEntityList = cakeService.getAllCakes();
+        List<Cake> cakeList = cakeService.getAllCakes();
         Map<String, Object> model = new HashMap<>();
-        model.put("cakes", cakeEntityList);
-        model.put("cake", new CakeEntity());
+        model.put("cakes", cakeList);
+        model.put("cake", new Cake());
 
         return new ModelAndView("index", model);
     }
@@ -40,19 +40,18 @@ public class CakeController {
     public ModelAndView insertCake() {
 
         Map<String, Object> model = new HashMap<>();
-        model.put("cake", new CakeEntity());
+        model.put("cake", new Cake());
 
         return new ModelAndView("insertCake", model);
     }
 
     @GetMapping(path = "/cakes", headers = {"Accept=application/json"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody
-    String cakeDataAsJSON() {
-        List<CakeEntity> cakeEntityList = cakeService.getAllCakes();
+    public @ResponseBody String cakeDataAsJSON() {
+        List<Cake> cakeList = cakeService.getAllCakes();
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonInString;
         try {
-            jsonInString = objectMapper.writeValueAsString(cakeEntityList);
+            jsonInString = objectMapper.writeValueAsString(cakeList);
         } catch (JsonProcessingException e) {
             jsonInString = "{ error : 'An error occurred' }";
         }
@@ -61,9 +60,9 @@ public class CakeController {
     }
 
     @PostMapping("/cakes")
-    public String addCake(@Valid @ModelAttribute("cake") CakeEntity cakeEntity,
+    public String addCake(@Valid @ModelAttribute("cake") Cake cake,
                           BindingResult result, ModelMap model) {
-        cakeService.saveCake(cakeEntity);
+        cakeService.saveCake(cake);
         model.addAttribute("success.save", "Cake Succesfully Inserted...");
         return "index";
     }

@@ -13,7 +13,7 @@ import org.springframework.context.event.EventListener;
 @SpringBootApplication
 public class CakeManagerApplication extends SpringBootServletInitializer {
 
-    @Autowired
+    @Autowired(required = false)
     private CakesUtil cakesUtil;
 
     public static void main(String[] args) {
@@ -22,7 +22,9 @@ public class CakeManagerApplication extends SpringBootServletInitializer {
 
     @EventListener(ApplicationReadyEvent.class)
     public void importCakesData() {
-        cakesUtil.initCakes();
+
+        if (cakesUtil != null)
+            cakesUtil.initCakes();
     }
 
 }

@@ -1,13 +1,13 @@
 package com.waracle.cakemanager.service;
 
-import com.waracle.cakemanager.domain.CakeEntity;
+import com.waracle.cakemanager.domain.Cake;
 
 import java.util.List;
 
 public interface CakeService {
 
-    List<CakeEntity> getAllCakes();
+    List<Cake> getAllCakes();
 
-    void saveCake(CakeEntity cake);
+    void saveCake(Cake cake);
 
 }

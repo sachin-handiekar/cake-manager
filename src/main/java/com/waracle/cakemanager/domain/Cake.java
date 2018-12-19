@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Table(name = "Cake", uniqueConstraints = {@UniqueConstraint(columnNames = "ID")})
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class CakeEntity implements Serializable {
+public class Cake implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

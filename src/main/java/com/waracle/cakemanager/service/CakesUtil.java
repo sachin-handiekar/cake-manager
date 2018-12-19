@@ -2,7 +2,7 @@ package com.waracle.cakemanager.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.waracle.cakemanager.domain.CakeEntity;
+import com.waracle.cakemanager.domain.Cake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,11 +38,11 @@ public class CakesUtil {
                 line = reader.readLine();
             }
 
-            List<CakeEntity> myObjects = mapper.readValue(buffer.toString(), new TypeReference<List<CakeEntity>>() {
+            List<Cake> myObjects = mapper.readValue(buffer.toString(), new TypeReference<List<Cake>>() {
             });
 
 
-            for (CakeEntity cake : myObjects) {
+            for (Cake cake : myObjects) {
                 LOGGER.debug("Inserting cake in database : " + cake);
                 cakeService.saveCake(cake);
             }

@@ -11,6 +11,7 @@ public class CakeManagerApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
 
 }
